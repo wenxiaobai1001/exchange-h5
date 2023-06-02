@@ -14,7 +14,7 @@
     <!-- <div class="download-bar" v-if="isShowAppDownload=='1'" style="display:none;"> -->
     <div class="download-bar" style="display:none;">
       <img src="../../assets/images/customized/logo.png">
-      <div><p>c-deal APP</p><p class="app-desc">New Vision, New Concept</p></div>
+      <div><p>coinglb APP</p><p class="app-desc">New Vision, New Concept</p></div>
       <img src="../../assets/img/download.png" @click="downloadApp">
       <img src="../../assets/img/grey-close.png" @click="closeApp">
     </div>

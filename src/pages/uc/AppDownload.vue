@@ -3,7 +3,7 @@
     <div class="login_right">
       <div style="color: #000;margin-bottom: 60px;padding-top: 160px;width: 100%;text-align:center;z-index: 10;">
         <img src="../../assets/images/customized/applogo.png" style="width: 22%;border-radius: 15px;">
-        <p style="font-size:18px;">www.c-deal.com</p>
+        <p style="font-size:18px;">www.coinglb.com</p>
         <!-- <p style="font-size:18px;">Please install app by safary browser.</p> -->
         <p style="font-size:12px;margin-top: 10px;color:#888;">Latest Version：v{{version}}</p>
         <p style="font-size:10px;margin-top: 10px;color:#888;letter-spacing: 1px;">Publish Time：{{publishTime}}</p>

@@ -110,7 +110,7 @@ export default {
     return {
       tableMoney:[],
       applogo:require("../../assets/images/my/header.png"),
-      invitionlink:'https://www.c-deal.com/#/reg?code=0QGW',
+      invitionlink:'https://www.coinglb.com/#/reg?code=0QGW',
       member:{},
       checkLogin:!!localStorage.getItem('TOKEN') ? true : false,
       getmypromotioninfor:{},

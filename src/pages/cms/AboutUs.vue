@@ -107,21 +107,21 @@
         </div>
         <div class="content1">
           <h5>{{$t('cms.contactus')}}</h5>
-          <p>{{$t('description.service')}}: support@c-deal.com</p>
-          <p>{{$t('description.support')}}: support@c-deal.com</p>
-          <p>{{$t('description.apply')}}: support@c-deal.com</p>
-          <p>{{$t('description.report')}}: support@c-deal.com</p>
-          <p>{{$t('description.coop')}}: support@c-deal.com</p>
+          <p>{{$t('description.service')}}: support@coinglb.com</p>
+          <p>{{$t('description.support')}}: support@coinglb.com</p>
+          <p>{{$t('description.apply')}}: support@coinglb.com</p>
+          <p>{{$t('description.report')}}: support@coinglb.com</p>
+          <p>{{$t('description.coop')}}: support@coinglb.com</p>
         </div>
         <div class="content1" style="border:none;">
           <h5>{{$t('description.community')}}</h5>
           <p>{{$t('description.wechat')}}: {{$t('description.addwechat')}}</p>
-          <p>{{$t('description.weibo')}}: https://weibo.com/c-deal</p>
-          <p>{{$t('description.twitter')}}: https://twitter.com/c-deal</p>
-          <p>{{$t('description.biyong')}}: https://0.plus/c-deal</p>
-          <p>{{$t('description.telegram')}}: https://t.me/c-deal</p>
-          <p>{{$t('description.medium')}}: https://medium.com/@c-deal</p>
-          <p>{{$t('description.reddit')}}: https://www.reddit.com/u/c-deal</p>
+          <p>{{$t('description.weibo')}}: https://weibo.com/coinglb</p>
+          <p>{{$t('description.twitter')}}: https://twitter.com/coinglb</p>
+          <p>{{$t('description.biyong')}}: https://0.plus/coinglb</p>
+          <p>{{$t('description.telegram')}}: https://t.me/coinglb</p>
+          <p>{{$t('description.medium')}}: https://medium.com/@coinglb</p>
+          <p>{{$t('description.reddit')}}: https://www.reddit.com/u/coinglb</p>
         </div>
       </div>
     </div>

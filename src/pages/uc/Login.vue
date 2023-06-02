@@ -1,41 +1,37 @@
 <template>
   <div class="login_form">
       <Form ref="formInline" :model="formInline" :rules="ruleInline" inline>
-        <div class="logo">
-          <img src="../../assets/images/customized/applogo.png" />
+        <div class="logo-wrap">
+          <img src="../../assets/images/logo.png" class="logo" />
+		  <div class="switch-language">语言切换</div>
         </div>
-        <div class="login_title">
-          Hi, <br/>
-          Welcome to c-deal
-        </div>
-        <FormItem prop="user">
+        <FormItem prop="user" class="specialitem">
           <Input name="user" size="large" type="text" v-model="formInline.user" :placeholder="$t('uc.login.usertip')" class="user"></Input>
         </FormItem>
-        <FormItem prop="password" class="password">
+        <FormItem prop="password" class="password specialitem">
           <Input type="password" size="large" v-model="formInline.password" :placeholder="$t('uc.login.pwdtip')" @on-keyup="onKeyup"></Input>
         </FormItem>
-        <div style="display: flex;justify-content: space-between;">
-          <FormItem prop="code" class="code" width="50px">
+        <div class="code">
+          <FormItem prop="code"  width="100px">
             <Input type="text" name="code" v-model="formInline.code"></Input>
           </FormItem>
           <img :src="captcha" height="32px" @click="initCaptcha" style="cursor: pointer;">
         </div>
 
-        <div class="to_register">
-          <div>
-            <span>{{$t('uc.login.noaccount')}}</span>
-            <router-link to="/register">{{$t('uc.login.goregister')}}</router-link>
-          </div>
-          <div>
-            <router-link to="/findPwd" style="color:#979797;float:right;padding-right:10px;font-size:14px;">{{$t('uc.login.forget')}}</router-link>
-          </div>
-        </div>
 
-        <div class="login-btn">
-          <Button type='warning' @click="handleSubmit('formInline')">{{$t('uc.login.login')}}</Button>
+
+          <div @click="handleSubmit('formInline')" class="btnlogin">{{$t('uc.login.login')}}</div>
           <!-- <Button @click="handleReset('formInline')" style="margin-left: 8px">{{$t('uc.safe.reset')}}</Button> -->
-        </div>
       </Form>
+	  <div class="to_register">
+	    <div>
+	      <span>{{$t('uc.login.noaccount')}}</span>
+	      <router-link to="/register" style="color: #2de2b4;">{{$t('uc.login.goregister')}}</router-link>
+	    </div>
+	    <div>
+	      <router-link to="/findPwd" style="color:#979797;float:right;padding-right:10px;font-size:14px;">{{$t('uc.login.forget')}}</router-link>
+	    </div>
+	  </div>
   </div>
 </template>
 <style scoped lang="scss">
@@ -245,69 +241,52 @@ export default {
 </script>
 <style lang="scss" scoped>
 .login_form{
-  width:100%;
-  height:100%;
-  padding: 2%;
-  background:white;
-  .logo {
-    height: 120px;
-    width: 100%;
-    text-align: center;
-    padding:2%;
-    img {
-      height: 100%;
-      width: auto;
-    }
-  }
-  .login_title{
-    color: #333;
-    font-size: 18px;
-    text-align: left;
-    margin-bottom: 15px;
-    padding: 2%;
-    font-weight: 600;
-  }
-  .to_register {
-    align-items: center;
-    font-size: 16px;
-    display: flex;
-    justify-content: space-between;
-    padding: 5% 2%;
-    margin-top: 50px;
-  }
-  .login-btn {
-      text-align: center;
-      padding: 5%;
-      .ivu-btn-warning {
-        color: #fff;
-        background-color: #f90;
-        border-color: #f90;
-        width: 200px;
-        font-size: 16px;
-        font-weight: 600;
-      }
-  }
-  .ivu-form-item-error-tip {
-    font-size: 14px;
-  }
-  .ivu-form-inline .ivu-form-item{
-    border-bottom:1px solid #ececec;
-    display:block;
-    // margin:0 auto 10px;
-    background:none;
-    .ivu-form-item-error .ivu-input{
-      border:none;
-      font-size: 16px;
-    }
-    /deep/ .ivu-input{
-      border:none;
-      outline:none;
-      border-radius:0;
-      height: 40px;
-      font-size: 16px;
-      padding: 2%;
-    }
-  }
+	padding: 0 22px 0 22px;
 }
+.code{
+	display: flex;
+	padding: 16px 0 0 0;
+	margin:10px auto;
+	align-items: center;
+	justify-content: space-between;
+}
+.login-btn{
+	padding: 16px 0 0 0;
+}
+.to_register{
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+.btnlogin{
+	width: 100%;
+	background: linear-gradient(0deg,#2a6972,#2bd4ac);
+	color: #fff;
+	height: 44px;
+	margin: 16px 0 0 0;
+	line-height: 44px;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 19px;
+}
+.logo-wrap{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 93px;
+	position: relative;
+	top:44px;
+	.logo{
+		width: 88px;
+		height: 88px;
+	}
+	.switch-language{
+	    position: absolute;
+	    top: 5px;
+	    right: 16px;
+	    color: #2de2b4;
+	}
+}
+
 </style>
 

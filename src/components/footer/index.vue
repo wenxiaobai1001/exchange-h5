@@ -60,11 +60,11 @@ export default {
 <style scoped lang="scss">
 .page-footer{
   // background: #172636;
-  background: #fff;
+  background: #2a405c!important;
   width: 100%;
   z-index: 100;
   position: fixed;
-  height: 50px;
+  padding: 4px 0;
   bottom: 0;
   .footer-nav {
     height: 100%;
@@ -74,7 +74,7 @@ export default {
     justify-content: space-between;
     padding: 4px 16px;
     font-size: 14px;
-    color: #172636;
+    color: #768da9;
     font-weight: 400;
     div {
         height: 100%;
@@ -83,24 +83,24 @@ export default {
         align-items: center;
         justify-content: center;
         .active{
-          color:#f0a70a;
+          color:#2befbc;
         }
         img{
           height: 16px;
         }
     }
     a{
-      color: #fff;
+      color: #768da9;
     }
     a.router-link-exact-active.router-link-active{
-      color: #f0a70a;
+      color: #2befbc;
       font-size: 16px;
     }
     a:active {
-      color: #f0a70a;
+      color: #2befbc;
     }
     a:hover {
-      color: #f0a70a;
+      color: #2befbc;
     }
   }
 }

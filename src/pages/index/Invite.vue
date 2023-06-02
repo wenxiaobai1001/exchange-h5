@@ -21,7 +21,7 @@
           <p class="i-t">{{$t('invite.mycommission')}}</p>
         </div>
         <div class="item">
-          <p class="i-v">{{myInfo.extrareward}}</p>
+          <p class="i-v">{{myInfo.extrareward}}</p> 
           <p class="i-t">{{$t('invite.extrareward')}}</p>
         </div>
         <div class="item">
@@ -58,14 +58,14 @@
           <table class="percent-table">
             <tr style="background:#EDEDED;">
             <td>{{$t('invite.level')}}</td><td>{{$t('invite.levelonecount')}}</td><td>{{$t('invite.levelonecommission')}}</td>
-            <td>{{$t('invite.leveltwocommission')}}</td><td>{{$t('invite.partnerdivide')}}</td></tr>
+            <td>{{$t('invite.leveltwocommission')}}</td><td>{{$t('invite.partnerdivide')}}5</td></tr>
 
             <tr><td>L1({{$t('invite.lv1')}})</td><td>0 ≤ N ≤ 10</td><td>20% / 6{{$t('invite.month')}}</td><td>5% / 6{{$t('invite.month')}}</td><td></td></tr>
             <tr><td>L2({{$t('invite.lv2')}})</td><td>10 < N ≤ 100</td><td>30% / 12{{$t('invite.month')}}</td><td>10% / 12{{$t('invite.month')}}</td><td></td></tr>
             <tr><td>L3({{$t('invite.lv3')}})</td><td>100 < N ≤ 500</td><td>40% / 12{{$t('invite.month')}}</td><td>15% / 12{{$t('invite.month')}}</td><td></td></tr>
             <tr><td>L4({{$t('invite.lv4')}})</td><td>500 < N ≤ 1500</td><td>50% / 24{{$t('invite.month')}}</td><td>20% / 24{{$t('invite.month')}}</td><td>+5%</td></tr>
             <tr><td>L5({{$t('invite.lv5')}})</td><td>1500 < N ≤ 3000</td><td>60% / 24{{$t('invite.month')}}</td><td>25% / 24{{$t('invite.month')}}</td><td>+10%</td></tr>
-            <tr><td>L6({{$t('invite.lv6')}})</td><td>3000 < N</td><td>60% / {{$t('invite.alllife')}}</td><td>25% / {{$t('invite.alllife')}}</td><td>+15%</td></tr>
+            <tr><td>L6({{$t('invite.lv6')}})</td><td>3000 < N</td><td>60% / {{$t('invite.alllife')}}</td><td>25% / {{$t('invite.alllife')}}</td><td>+15%</td></tr> 
           </table>
           <div style="font-size: 12px;padding: 10px;margin-left: 30px;width: 90%;margin-bottom: 10px;border: 1px solid #c8c8c8;">
             <p style="font-size: 13px;font-weight:bold;">{{$t('invite.ruleexampletitle')}}</p>
@@ -150,7 +150,7 @@
       <Divider style="margin-top: 40px;" orientation="left">{{$t('invite.pt_card_rule')}}</Divider>
       <div class="ptcard-info">
         <p class="title">{{$t('invite.pt_card_summary')}}</p>
-        <p class="detail">{{$t('invite.pt_card_rule1')}}: support@c-deal.com</p>
+        <p class="detail">{{$t('invite.pt_card_rule1')}}: support@coinglb.com</p>
         <p class="detail">{{$t('invite.pt_card_rule2')}}</p>
         <p class="detail">{{$t('invite.pt_card_rule3')}}</p>
         <p class="detail">{{$t('invite.pt_card_rule4')}}</p>
@@ -209,7 +209,7 @@ export default {
         commission: 0,
         extrareward: 0,
         partnerlevel: "-",
-        inviteLink: "https://h5.c-deal.com/#/register?code=000000"
+        inviteLink: "https://h5.coinglb.com/#/register?code=000000"
       },
       promotionRecordPage: {
         pageNo: 1,

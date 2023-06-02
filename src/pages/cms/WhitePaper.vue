@@ -1,8 +1,8 @@
 <template>
   <div class="pdf">
-    <embed src="https://coineurglobalvip.oss-accelerate.aliyuncs.com/assets/files/c-dealWhitePaperVer2021.pdf" width="100%" height="800">
+    <embed src="https://coineurglobalvip.oss-accelerate.aliyuncs.com/assets/files/coinglbWhitePaperVer2021.pdf" width="100%" height="800">
     <p class="arrow" style="text-align:center;color:#000;margin: 20px 0 20px 0;">
-      <a style="color: #FFF;" href="https://coineurglobalvip.oss-accelerate.aliyuncs.com/assets/files/c-dealWhitePaperVer2021.pdf" target="_blank">{{$t("sectionPage.downloadwhite")}}</a>
+      <a style="color: #FFF;" href="https://coineurglobalvip.oss-accelerate.aliyuncs.com/assets/files/coinglbWhitePaperVer2021.pdf" target="_blank">{{$t("sectionPage.downloadwhite")}}</a>
     </p>
   </div>
 </template>
@@ -10,7 +10,7 @@
 export default {
   data() {
     return {
-      src: 'https://coineurglobalvip.oss-accelerate.aliyuncs.com/assets/files/c-dealWhitePaperVer2021.pdf'
+      src: 'https://coineurglobalvip.oss-accelerate.aliyuncs.com/assets/files/coinglbWhitePaperVer2021.pdf'
     };
   },
   created: function() {

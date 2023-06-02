@@ -1,38 +1,34 @@
 <template>
   <div class="login_form">
       <Form ref="formInline" class="login_form_content" :model="formInline" :rules="ruleInline" inline>
-        <div class="logo">
-          <img src="../../assets/images/customized/applogo.png" />
+        <div class="logo-wrap">
+          <img src="../../assets/images/logo.png" class="logo" />
         </div>
         <div class="login_title">{{$t('uc.forget.title')}}</div>
-          
-        <FormItem prop="user" style="width:100%;">
+        <FormItem prop="user"  class="specialitem">
           <Input type="text" size="large" v-model="formInline.user" :placeholder="$t('uc.login.usertip')"></Input>
         </FormItem>
+		<div class="codesend">
+			<FormItem prop="code"  class="specialitem">
+			  <!-- <div class="flex code"> -->
+			  <Input type="text" size="large" v-model="formInline.code" :placeholder="$t('uc.forget.smscode')"></Input>
+			  <!-- </div> -->
+			</FormItem>
+			<span class="send-code" style="width:100px"  id="sendCode" @click="sendSMS()">{{sendcodeValue}}</span>
+		</div>
 
-        <FormItem prop="code" style="width:100%;" class="login-form-user code">
-          <!-- <div class="flex code"> -->
-          <Input type="text" size="large" v-model="formInline.code" :placeholder="$t('uc.forget.smscode')">
-            <input class="send-code" style="width:100px" type="Button" slot="append" id="sendCode" @click="sendSMS()" :value="sendcodeValue" :disabled="codedisabled">
-          </Input>
-          <!-- </div> -->
-        </FormItem>
-
-        <FormItem prop="password" class="password" style="width:100%;">
+        <FormItem prop="password" class="password specialitem">
           <Input type="password" size="large" v-model="formInline.password" :placeholder="$t('uc.forget.newpwd')"></Input>
         </FormItem>
 
-        <FormItem prop="repassword" class="password" style="width:100%;">
-          <Input type="password" v-model="formInline.repassword" :placeholder="$t('uc.forget.confirmpwd')"></Input>
+        <FormItem prop="repassword" class="specialitem password">
+          <Input type="password" v-model="formInline.repassword" size="large"  :placeholder="$t('uc.forget.confirmpwd')"></Input>
         </FormItem>
-
-        <div class="pwd-btn">
-          <Button type='warning' @click="handleSubmit('formInline')">{{$t('uc.forget.save')}}</Button>
+        <div type='warning' @click="handleSubmit('formInline')" class="btnlogin">{{$t('uc.forget.save')}}</div>
           <!-- <Button @click="handleReset('formInline')" style="margin-left: 8px">{{$t('uc.safe.reset')}}</Button> -->
-        </div>
 
          <div class='to_register' style="font-size:14px;">
-          <router-link to="/login">{{$t('uc.login.login')}}</router-link>
+          <router-link to="/login" style="color: #2de2b4;">{{$t('uc.login.login')}}</router-link>
         </div>
       </Form>
     <Modal v-model="modal1" :mask-closable="false">
@@ -254,92 +250,65 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-  .login_form{
-    width:100%;
-    height:100%;
-    padding: 2%;
-    background:white;
-    .login_form_content{
-      padding: 2%;
-      .login-form-user {
-        width: 100%;
-        /deep/ .ivu-input-group-append {
-          background-color: #f0ac19;
-          border: none;
-          input#sendCode {
-              color: #fff;
-          }
-      }
-        .send-code {
-          border: none;
-          color: #f0ac19;
-          font-weight: bold;
-          background: transparent;
-        }
-      }
-    }
-    .logo {
-      height: 120px;
-      width: 100%;
-      text-align: center;
-      padding:2%;
-      img {
-        height: 100%;
-        width: auto;
-      }
-    }
-
-    /deep/ .ivu-form-inline .ivu-form-item{
-      // margin-right: 0;
-      // border-bottom: 1px solid #ececec;
-      input.ivu-input {
-          border: none;
-          outline: none;
-          font-size: 14px;
-      }
-    }
-
-    .login_title{
-      color:#333;
-      font-size:18px;
-      text-align:center;
-      margin-bottom:15px;
-    }
-    .to_register {
-      font-size: 14px;
-      margin-top: 20px;
-    }
-    .pwd-btn{
-      text-align: center;
-      margin-top: 50px;
-      .ivu-btn-warning {
-          color: #fff;
-          background-color: #f90;
-          border-color: #f90;
-          width: 200px;
-          font-size: 16px;
-          font-weight: 600;
-      }
-    }
-
-    .flex.code {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .ivu-input-wrapper {
-            width: 60%;
-        }
-        input#sendCode {
-          flex-grow: 1;
-          background-color: #f90 !important;
-          color: #fff !important;
-          font-size: 14px;
-          border-radius: 10px;
-          margin-left: 2%;
-          background: none;
-          border: none; 
-        }
-    }
-
-  }
+.login_form{
+	padding: 0 22px 0 22px;
+}
+.code{
+	display: flex;
+	padding: 16px 0 0 0;
+	margin:10px auto;
+	align-items: center;
+	justify-content: space-between;
+}
+.login-btn{
+	padding: 16px 0 0 0;
+}
+.to_register{
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+.btnlogin{
+	width: 100%;
+	background: linear-gradient(0deg,#2a6972,#2bd4ac);
+	color: #fff;
+	height: 44px;
+	margin: 16px 0 0 0;
+	line-height: 44px;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 19px;
+}
+.logo-wrap{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 59px;
+	position: relative;
+	top:44px;
+	.logo{
+		width: 88px;
+		height: 88px;
+	}
+	.switch-language{
+	    position: absolute;
+	    top: 5px;
+	    right: 16px;
+	    color: #2de2b4;
+	}
+}
+.login_title{
+	color: rgb(226, 232, 228);
+	text-align: center;
+}
+.codesend{
+	position: relative;
+	.send-code{
+		position: absolute;
+		right: 15px;
+		top: 44%;
+		color: #2de2b4;
+		text-align: right;
+	}
+}
 </style>

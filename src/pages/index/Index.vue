@@ -1,5 +1,10 @@
 <template>
   <div class="page-home">
+	<div class="Sticky_top">
+		<img src="../../assets/images/user.png" @click="userControl = true" />
+		<div class="name">bittrade</div>
+		<div></div>
+	</div>
     <!-- <PageHeader :headerType=1></PageHeader> -->
     <div class="page-content">
       <div class="page-index">
@@ -53,7 +58,7 @@
 
         <div class="section" id="page3">
           <div class="quick-transaction">
-            <div class="quick-title">{{$t("common.quickTransaction")}}</div>
+            <div class="quick-title green">{{$t("common.quickTransaction")}}</div>
             <div class="quick-content">
               <div class="quick-recharge" @click="goToRechargePage()">
                 <div class="quick-recharge-title">
@@ -127,10 +132,19 @@
         </div>
         <div class="section" id="page7">
           <div class="coin-content">
-            <div class="coin-title">{{$t("common.marketTrend")}}</div>
+            <div class="coin-title">
+				<img src="../../assets/images/index_l.png" class="logo" />
+				<span class="marketTrend">{{$t("common.marketTrend")}}</span>
+				<img src="../../assets/images/left_r.png" class="logo" />
+			</div>
             <div class="coin-list">
+			  <div class="tips">
+				  <div>交易對</div>
+				  <div>交易對</div>
+				  <div>交易對</div>
+			  </div>
               <div class="coin-item" v-for="(item,index) in coins_list" :key="index" @click="goExchangePage(item)">
-                <span class="coin-name">{{item.symbol}}</span>
+                <span class="coin-name"><span>{{item.symbolfrist}}</span>/{{item.symbollast}}</span>
                 <span class="coin-last-price" :class="{'price-down':item.chg<0, 'price-up':item.chg>0}">{{item.close}}</span>
                 <span class="coin-rate price-rize" :class="{'price-down':item.chg<0, 'price-up':item.chg>0}">{{(item.chg*100).toFixed(2)+'%'}}</span>
               </div>
@@ -140,20 +154,170 @@
       </div>
     </div>
     <PageFooter curindex='home'></PageFooter>
+	<!--左侧抽屉 开始-->
+	<Drawer placement="left" :closable="false" v-model="userControl" class="drawer_index">
+	  <div>
+		  <div class="user-info">
+			  <img src="../../assets/images/user.png" class="user-img" />
+			  <div class="u-avatar login-avatar">
+				  <div class="nickname">你好, 123</div>
+				  <div class="uid">UID: 6<Icon type="md-copy" class="green margin10" size='20' /></div>
+			  </div>
+			  <div class="iconlist green">
+				  <div>
+					  <img src="../../assets/images/index_ico1.png" alt="" class="img" />
+					  充幣
+				  </div>
+				  <div>
+					  <img src="../../assets/images/index_ico1.png" alt="" class="img" />
+					  充幣
+				  </div>
+				  <div>
+					  <img src="../../assets/images/index_ico1.png" alt="" class="img" />
+					  充幣
+				  </div>
+			  </div>
+		  </div>
+		  
+		  <div class="setlist">
+			  <div :class="item == 1 ? 'item curitem' : 'item'" v-for='item in 5' :key='item'>
+				  <img class="icon" src="../../assets/images/lm_1.png" />
+				  123
+			  </div>
+		  </div>
+	  </div>
+	  <div class="set">
+		  <img  src="../../assets/images/set.png" />设定
+	  </div>
+	</Drawer>
+	<!--左侧抽屉 结束-->
   </div>
 </template>
 
-<style scoped lang="scss" >
+<style scoped lang="scss">
+.set{
+	position: absolute;
+	bottom: 0;
+	left: 0%;
+	width: 100%;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-top: 1px solid #3a495c;
+	height: 55px;
+	font-weight: 700;
+	font-size: 13px;
+	line-height: 55px;
+	img{
+		margin-right: 10px;
+		width: 18px;
+		height: 16px;
+	}
+}
+.setlist{
+	.curitem{
+		background: #284b64;
+		border-left: 5px solid #2a6e75;
+	}
+	margin-top: 70px;
+	.item{
+		display: flex;
+		height: 50px;
+		line-height: 50px;
+		align-items: center;
+		padding: 0 15px;
+		img{
+			width: 15px;
+			margin-right: 10px;
+			height: 12px;
+		}
+	}
+}
+.user-info{
+	    width: 229px;
+	    height: 119px;
+	    margin: 43px auto 0; 
+	    background: url('../../assets/images/bg_dar.png') no-repeat left bottom;
+		background-size: 100%;
+		.user-img{
+			position: relative;
+			top: -30px;
+			width: 83px;
+			height: 83px;
+			left: 50%;
+			margin-left: -41.5px;
+			display: block;
+		}
+		.u-avatar{
+			text-align: center;
+			font-size: 13px;
+			color: #909399;
+			margin-bottom: 5px;
+			position: relative;
+			top: -20px;
+		}
+		.iconlist{
+			display: flex;
+			padding: 0 5px;
+			justify-content: space-between;
+			div{
+				text-align:center;
+				.img{
+					width: 30px;
+					height: 25px;
+					display: block;
+					margin:5px auto;
+					
+				}
+			}
+			
+		}
+}
+.page-content{
+	background-color: #1B2C42;
+	padding:64px 16px 0;
+	box-sizing: border-box;
+}
+.Sticky_top{
+	z-index: 88;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	height: 44px;
+	align-items: center;
+	background-color: #2a405c;
+	padding:0 16px;
+	box-sizing: border-box;
+	img{
+		width: 27px;
+		height: 27px;
+	}
+	.name{
+		font-family: DIN-Regular-2;
+		font-size: 20px;
+		font-weight: 700;
+		letter-spacing: 4px;
+		color: #e2e8e4;
+	}
+}
 .page-index{
   width:100%;
   padding-bottom: 50px;
   // padding-top: 50px;
   padding-top: 0px;
   #page1 {
-    background-color: #fff;
     height: 200px;
     margin: 0 0 2% 0;
     // margin: 2% 0;
+	.swiper-slide{
+		border-radius: 5px;
+		overflow: hidden;
+	}
+
     .activity-list {
       height: 100%;
       .swiper-container {
@@ -173,7 +337,8 @@
   }
 
   #page2 {
-    background-color: #fff;
+	background-color: #2a405c;
+	color: #768da9;
     // height: 40px;
     margin: 2% 0;
     padding: 0 2%;
@@ -263,7 +428,9 @@
   // }
 
   #page3 {
-    background-color: #fff;
+	.quick-withdraw-title{
+		padding: 2px;
+	}
     margin: 2% 0;
     padding: 0 2%;
     .quick-transaction {
@@ -288,10 +455,12 @@
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          width: 45%;
+          width: 48%;
           border-radius: 10px;
+		  background: #2a405c;
+		  box-shadow: 0 11px 11px 0 rgba(10,16,23,.4);
+		  color: #768da9;
           padding: 2%;
-          box-shadow: 2px 2px 4px 2px #f0f2f5;
           .quick-recharge-subtitle {
             font-size: 16px;
             font-weight: 600;
@@ -302,8 +471,10 @@
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          width: 45%;
-          box-shadow: 2px 2px 4px 2px #f0f2f5;
+          width: 48%;
+		  background: #2a405c;
+		  box-shadow: 0 11px 11px 0 rgba(10,16,23,.4);
+		  color: #768da9;
           border-radius: 10px;
           padding: 2%;
           .quick-withdraw-subtitle {
@@ -318,19 +489,18 @@
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
-        border-top: 2px solid #f0f2f5;
         margin-top: 5px;
         padding-top: 5px;
     }
     .help-notice>div {
-        width: 33.33%;
+        width: 25%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+		color:#fff;
         padding: 2%;
         font-size: 14px;
-        box-shadow: 0px 2px 6px 0px #f0f2f5;
         div{
           text-align: center;
         }
@@ -348,7 +518,7 @@
     height: 110px;
     .my-lab {
       display: flex;
-      justify-content: space-between;
+      justify-content:center;
       align-items: center;
       height: 100%;
       background-image: url("../../assets/images/activity_mobile.jpg");    
@@ -411,7 +581,8 @@
   }
 
   #page6{
-    background-color: #fff;
+    background-color: #2a405c;
+	color: #768da9;
     margin: 2% 0;
     padding: 0% 2% 2% 2%;
     .pagetrend-main{
@@ -428,7 +599,7 @@
         .pagetrend-btctrend-title {
           font-size: 18px;
           font-weight: bold;
-          color:#f0a70a;
+          color:#2de2b4;
           margin: 10px 0;
           // color: rgb(130, 142, 161);
         }
@@ -436,7 +607,7 @@
             color: rgb(130, 142, 161);
             .lastest-price {
                 font-size: 16px;
-                background:-webkit-linear-gradient(left,#828ea1,#4c5563 25%,#f0a70a 50%,#4c5563 75%,#f0a70a);
+                background:-webkit-linear-gradient(left,#828ea1,#4c5563 25%,#2de2b4 50%,#4c5563 75%,#2de2b4);
                 color:transparent;
                 -webkit-background-clip:text;
                 background-size:200% 100%;
@@ -466,7 +637,6 @@
   }
 
   #page7{
-    background-color: #fff;
     margin: 2% 0;
     padding: 0 2%;
     .coin-content{
@@ -475,33 +645,54 @@
       .coin-title {
           font-size: 18px;
           font-weight: bold;
-          color: #f0a70a;
+		  align-items: center;
+		  display: flex;
+		  justify-content:center;
+          color: #2de2b4;
           margin: 10px 0;
+		  .marketTrend{
+			  padding: 0 5px;
+		  }
+		  img{
+			      height: 4px;
+			      width: 57px;
+		  }
       }
       .coin-list {
         .coin-item:last-child {
           border-bottom: none !important;
         }
+		.tips{
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 5px;
+			div{
+				color:#768da9;
+				background-color: #2a405c;
+				padding: 1px 31px;
+				border-radius: 11px;
+			}
+		}
         .coin-item {
+		  font-family: DIN-Regular-2;
           display: flex;
           justify-content: space-between;
           align-items: center;
           height: 40px;
+		  font-weight: 700;
           font-size: 14px;
-          border-bottom: 2px solid #f0f2f5;
+		  color:#768da9;
           .coin-name {
             width: 90px;
-          }
-          .coin-last-price.price-up {
-            color: #00b275;
+			span{
+				color:#2de2b4;
+			}
           }
           .coin-last-price{
             width: 100px;
             text-align: left;
           }
-          .coin-last-price.price-down {
-            color:#f15057;
-          }
+
           .price-rize {
             padding: 2px 4px;
             width: 70px;
@@ -545,6 +736,7 @@ export default {
   data() {
     let self = this;
     return {
+	  userControl:false,
       lineValues :[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       trendData: {
         highest: 0,
@@ -680,10 +872,13 @@ export default {
     },
     updateCoinList(resp){
       this.coins_list.forEach(function(e){
+		  e.symbolfrist = e.symbol.split("/")[0]
+		  e.symbollast = e.symbol.split("/")[1]
           if(e.symbol==resp.symbol){
             e.chg = resp.chg;
             e.close = resp.close;
           }
+		  return e
       });
       return this.coins_list;
     },

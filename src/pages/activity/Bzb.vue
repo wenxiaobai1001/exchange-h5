@@ -71,8 +71,8 @@
       <div class="content_wrapper">
         <div class="content1">
           <h5>CDEA介绍</h5>
-          <p>CDEA是c-deal(c-deal.com)交易平台权益凭证，总发行量5亿枚，永不增发。CDEA的持有者除了可享受代币升值、收益分红、上币分红等权益外，还可以通过参与c-deal(c-deal.com)超级节点(合伙人)投票获得节点收益，超级节点具有决策参与权、第一知情权、优先上币权以及未来上市股票分配等传统企业股东权益。</p>
-          <p>CDEA除了是交易平台权益凭证，也将成为c-deal生态项目的唯一权益凭证，如矿池、DEX、游戏、钱包、资讯等生态项目，c-deal是开放生态型交易所，我们欢迎任何项目方加入CDEA生态，并在初期给予一定数量的CDEA作为生态项目成员的发展基金。</p>
+          <p>CDEA是coinglb(coinglb.com)交易平台权益凭证，总发行量5亿枚，永不增发。CDEA的持有者除了可享受代币升值、收益分红、上币分红等权益外，还可以通过参与coinglb(coinglb.com)超级节点(合伙人)投票获得节点收益，超级节点具有决策参与权、第一知情权、优先上币权以及未来上市股票分配等传统企业股东权益。</p>
+          <p>CDEA除了是交易平台权益凭证，也将成为coinglb生态项目的唯一权益凭证，如矿池、DEX、游戏、钱包、资讯等生态项目，coinglb是开放生态型交易所，我们欢迎任何项目方加入CDEA生态，并在初期给予一定数量的CDEA作为生态项目成员的发展基金。</p>
         </div>
       </div>
       <h2 class="title">CDEA权益</h2>
@@ -123,8 +123,8 @@
       <div class="content_wrapper">
         <div class="content1">
           <h5>白皮书</h5>
-          <p>c-deal(c-deal.com)数字资产交易平台白皮书-中文版.pdf</p>
-          <p>c-deal Exchange Platform White Paper-English.pdf</p>
+          <p>coinglb(coinglb.com)数字资产交易平台白皮书-中文版.pdf</p>
+          <p>coinglb Exchange Platform White Paper-English.pdf</p>
         </div>
       </div>
     </div>

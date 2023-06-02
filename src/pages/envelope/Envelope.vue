@@ -14,7 +14,7 @@
       </p>
     </div>
     <img style="width: 100%;" :src="envelopeInfo.bgImage"></img>
-    <p style="margin-top: -80px;margin-bottom: 80px;text-align:center;color: rgb(255, 136, 79);font-size:13px;">该红包通过c-deal(c-deal.com)发出</p>
+    <p style="margin-top: -80px;margin-bottom: 80px;text-align:center;color: rgb(255, 136, 79);font-size:13px;">该红包通过coinglb(coinglb.com)发出</p>
     <div class="input-panel"  v-if="!hasReceived &&  envelopeInfo.state == 0">
       <div style="color: rgb(177, 177, 177);font-size: 16px;margin: 10px 0 20px 0;" v-html="envelopeInfo.detail"></div>
       <Form ref="formInline" inline>
@@ -60,7 +60,7 @@
       </div>
     </div>
     <p style="text-align:center;margin-top: 25px;margin-bottom: 20px;">
-    <router-link style="font-size:14px;text-align:center;color: #EEE;margin-top:15px;text-decoration:underline;" to="/app">© c-deal.com | 下载APP</router-link>
+    <router-link style="font-size:14px;text-align:center;color: #EEE;margin-top:15px;text-decoration:underline;" to="/app">© coinglb.com | 下载APP</router-link>
     </p>
 
     <Spin size="large" fix v-if="spinShow"></Spin>
@@ -73,7 +73,7 @@ export default {
     return {
       spinShow: false,
       hasReceived: false,
-      inviteLink: "https://h5.c-deal.com/#/envelope/",
+      inviteLink: "https://h5.coinglb.com/#/envelope/",
       envelopeNo: "",
       country: "",
       sendcodeValue: this.$t("uc.regist.sendcode"),
@@ -244,7 +244,7 @@ export default {
               this.envelopeInfo.bgImage = res.body.data.bgImage;
             }
 
-            window.document.title = "【" + this.envelopeInfo.totalAmount + " " + this.envelopeInfo.unit + "】" + this.envelopeInfo.name + "  — CDEA (www.c-deal.com)交易所"
+            window.document.title = "【" + this.envelopeInfo.totalAmount + " " + this.envelopeInfo.unit + "】" + this.envelopeInfo.name + "  — CDEA (www.coinglb.com)交易所"
             this.getEnvelopeDetailList();
           } else {
               this.$Message.error(res.body.message);

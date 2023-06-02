@@ -1,5 +1,5 @@
 <template>
-  <div class="page-coinmenu-list">
+  <div class="page-coinmenu-list market">
     <!-- <PageHeader :headerType=1 title="Market"></PageHeader>  -->
     <div class="page-content">
       <div class="coin-menu">
@@ -38,6 +38,7 @@
     height: 40px;
     justify-content: space-between;
     align-items: center;
+	border-bottom: 1px solid #3a495c;
     .ivu-btn-default.active{
       color: #f0a70a;
       border-bottom: 4px solid #f0a70a;

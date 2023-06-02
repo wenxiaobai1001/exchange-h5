@@ -165,7 +165,7 @@
       <Divider style="margin-top: 40px;" orientation="left">{{$t('invite.pt_card_rule')}}</Divider>
       <div class="ptcard-info">
         <p class="title">{{$t('invite.pt_card_summary')}}</p>
-        <p class="detail">{{$t('invite.pt_card_rule1')}}: support@c-deal.com</p>
+        <p class="detail">{{$t('invite.pt_card_rule1')}}: support@coinglb.com</p>
         <p class="detail">{{$t('invite.pt_card_rule2')}}</p>
         <p class="detail">{{$t('invite.pt_card_rule3')}}</p>
         <p class="detail">{{$t('invite.pt_card_rule4')}}</p>
@@ -225,7 +225,7 @@ export default {
         commission: 0,
         extrareward: 0,
         partnerlevel: "-",
-        inviteLink: "https://h5.c-deal.com/#/register?code=000000"
+        inviteLink: "https://h5.coinglb.com/#/register?code=000000"
       },
       promotionRecordPage: {
         pageNo: 1,

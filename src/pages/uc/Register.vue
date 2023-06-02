@@ -1,46 +1,46 @@
 <template>
-  <div class="login-form-section">
+  <div class="login_form">
     <div class="login-form-one">
-      <div class="login-tip">
-        <h1 class="login-tip-title">c-deal</h1>
-        <h4 class="login-tip-subtitle">{{$t('footer.gsmc')}}</h4>
-        <div class="login-tip-note">Safety ● Honesty ● Fairness ● Enthusiasm ● Openness</div>
+      <div class="logo-wrap">
+        <img src="../../assets/images/logo.png" class="logo" />
       </div>
       <div class="login-form-type">
         <!-- <span @click="actives(1)" v-if="changeActive==0">{{$t("uc.regist.telregist")}}</span> -->
-        <span @click="actives(0)" v-if="changeActive==0">{{$t("uc.regist.emailregist")}}</span>
+        <span @click="actives(0)" v-if="changeActive==0"  style="color: #2de2b4;">{{$t("uc.regist.emailregist")}}</span>
       </div>
       <Form class="login-form" ref="formInline" :model="formInline" :rules="ruleInline" inline>
-        
         <FormItem prop="username" class="login-form-user" style="display:none;">
           <Input type="text" v-model="formInline.username" :placeholder="$t('uc.regist.username')"></Input>
         </FormItem>
         
-        <FormItem prop="user" class="login-form-user with-code" v-if="changeActive==1">
+        <FormItem prop="user" v-if="changeActive==1"  class="specialitem">
           <Select filterable v-model="formInline.country" class="login-form-user-select" style="width: 120px">
               <Option :value="item.zhName" v-for="item in areas" v-bind:key="item.zhName">+{{item.areaCode}} - {{item.enName}}</Option>
             </Select>
           <Input type="text" style="width: 180px" size="large" v-model="formInline.user" :placeholder="key" class="login-form-user-input"></Input>
         </FormItem>
 
-        <FormItem prop="user" class="login-form-user" v-if="changeActive==0">
+        <FormItem prop="user" class="specialitem" v-if="changeActive==0">
           <Input type="text" size="large" v-model="formInline.user" :placeholder="key" class="login-form-user-input"></Input>
         </FormItem>
-
-        <FormItem prop="code" class="login-form-user code">
-          <Input size="large" v-model="formInline.code" :placeholder="$t('uc.regist.smscode')">
-            <input class="send-code" style="width:100px" type="Button" slot="append" id="sendCode" @click="sendCode();" :value="sendcodeValue" :disabled='codedisabled'>
-          </Input>
-        </FormItem>
-
-        <FormItem prop="password" class="login-form-user">
+		
+		<div class="codesend">
+			<FormItem prop="code"  class="specialitem">
+			  <!-- <div class="flex code"> -->
+			  <Input type="text" size="large" v-model="formInline.code" :placeholder="$t('uc.regist.smscode')"></Input>
+			  <!-- </div> -->
+			</FormItem>
+			<span class="send-code" style="width:100px"  id="sendCode" @click="sendCode()">{{sendcodeValue}}</span>
+		</div>
+	
+        <FormItem prop="password" class="specialitem">
           <Input size="large" type="password" v-model="formInline.password" :placeholder="$t('uc.regist.pwd')"></Input>
         </FormItem>
-        <FormItem prop="repassword" class="login-form-user">
+        <FormItem prop="repassword" class="specialitem">
           <Input size="large" type="password" v-model="formInline.repassword" :placeholder="$t('uc.regist.repwd')"></Input>
         </FormItem>
 
-        <FormItem prop="promotion" class="login-form-user">
+        <FormItem prop="promotion" class="specialitem">
           <Input size="large" type="text" v-model="formInline.promotion"><span slot="prepend">{{$t('uc.regist.promotion')}}:</span></Input>
         </FormItem>
 
@@ -49,11 +49,9 @@
           <router-link v-if="lang=='zh_CN'" to="/helpdetail?cate=5&id=36">《{{$t('uc.regist.userprotocol')}}》</router-link>
           <router-link v-if="lang!='zh_CN'" to="/helpdetail?cate=5&id=32">《{{$t('uc.regist.userprotocol')}}》</router-link>
         </div>
-
-        <div class="login-form-btn register-btn" style="margin-top:20px;">
-          <Button type='warning' :class="{'registing':registing}" @click="handleSubmit('formInline')" :disabled="registing">{{$t('uc.regist.regist')}}</Button>
+		
+		<div @click="handleSubmit('formInline')" class="btnlogin">{{$t('uc.regist.regist')}}</div>
           <!-- <Button @click="handleReset('formInline')" style="margin-left: 8px">{{$t('uc.safe.reset')}}</Button> -->
-        </div>
         <div class='to_register' style="font-size:14px;">
           <span>{{$t('uc.forget.hasaccount')}}</span>
           <router-link to="/login">{{$t('uc.login.login')}}</router-link>
@@ -87,156 +85,66 @@
   </div>
 </template>
 <style scoped lang="scss">
-.login-form-section {
-  background:#fff;
-  height: 100%;
-  position: relative;
-  .login-form-one {
-    padding: 2%;
-    background: transparent;
-    width: 100%;
-    border-radius: 5px;
-    .login-tip{
-      color: #F90;
-      margin-bottom: 30px;
-      margin-top: 30px;
-      .login-tip-title{
-        border-left: 5px solid #F90;
-        padding-left: 10px;
-        letter-spacing: 2px;
-        line-height: 30px;
-        height: 30px;
-      }
-      .login-tip-subtitle{
-        margin-top:5px;
-        letter-spacing: 1px;
-      }
-      .login-tip-note{
-        letter-spacing: 0.5px;
-        margin-top: 10px;
-        color:#727284;
-        font-size:12px;
-      }
-    }
-    .login-form-type {
-      width: 100%;
-      text-align: right;
-      padding:2%;
-      span{
-        color: #f0ac19;
-      }
-    }
-    .login-form {
-      // border-radius: 5px;
-      padding: 2%;
-      .with-code {
-        /deep/ .ivu-select-single .ivu-select-selection{
-          height: 36px;
-        }
-        /deep/ .ivu-form-item-content{
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-      }
-      .login-form-user {
-        width: 100%;
-        .send-code {
-          border: none;
-          color: #f0ac19;
-          font-weight: bold;
-          background: transparent;
-        }
-      }
-      .check-agree{
-        a{
-          color: #f0ac19 !important;
-        }
-        .ivu-checkbox-checked:hover .ivu-checkbox-inner {
-          border-color: #f0ac19;
-        }
-        /deep/ .ivu-checkbox-checked .ivu-checkbox-inner {
-          border-color: #f0ac19;
-          background-color: #f0ac19;
-        }
-      }
-      
-      .login-form-btn{
-        width: 100%;
-        button.register_btn.ivu-btn.ivu-btn-default.registing {
-            background-color: grey !important;
-            border-color: grey !important;
-        }
-        .register_btn {
-            width: 100%;
-            background-color: #f0ac19;
-            outline: none;
-            border-color: #f0ac19;
-            color: #fff;
-            border-radius: 5px;
-            font-size: 18px;
-            margin-top: 20px;
-        }
-      }
-    }
-  }
-
-  .register-btn{
-    text-align: center;
-    margin: 5% 0;
-    .ivu-btn-warning {
-        font-size: 16px;
-        width: 200px;
-    }
-  }
-
-  .code{
-    /deep/ .ivu-input-group-append {
-        background-color: #f0ac19;
-        border: none;
-        input#sendCode {
-            color: #fff;
-        }
-    }
-  }
-
-  .login-form-two {
-    background: transparent;
-    padding: 10px 0 80px 0;
-    ul {
-      width: 95%;
-      margin: 0 auto;
-      li {
-        flex: 0 0 25%;
-        display: inline-block;
-        width: 100%;
-        padding: 0 15px;
-        div {
-          width: 130px;
-          height: 130px;
-          border-radius: 50%;
-          vertical-align: middle;
-          text-align: center;
-          margin: 0 auto;
-          img {
-            height: 125px;
-            margin-top: 8px;
-          }
-        }
-        p {
-          font-size: 14px;
-          margin: 10px 0;
-          text-align: center;
-          color: #828ea1;
-        }
-        p.title {
-          color: #fff;
-          font-size: 18px;
-          font-weight: 400;
-        }
-      }
-    }
-  }
+.login_form{
+	padding: 0 22px 0 22px;
+}
+.code{
+	display: flex;
+	padding: 16px 0 0 0;
+	margin:10px auto;
+	align-items: center;
+	justify-content: space-between;
+}
+.login-btn{
+	padding: 16px 0 0 0;
+}
+.to_register{
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+.btnlogin{
+	width: 100%;
+	background: linear-gradient(0deg,#2a6972,#2bd4ac);
+	color: #fff;
+	height: 44px;
+	margin: 16px 0 0 0;
+	line-height: 44px;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 19px;
+}
+.logo-wrap{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 59px;
+	position: relative;
+	top:44px;
+	.logo{
+		width: 88px;
+		height: 88px;
+	}
+	.switch-language{
+	    position: absolute;
+	    top: 5px;
+	    right: 16px;
+	    color: #2de2b4;
+	}
+}
+.login_title{
+	color: rgb(226, 232, 228);
+	text-align: center;
+}
+.codesend{
+	position: relative;
+	.send-code{
+		position: absolute;
+		right: 15px;
+		top: 44%;
+		color: #2de2b4;
+		text-align: right;
+	}
 }
 </style>
 
@@ -367,7 +275,7 @@ export default {
       if(this.isLogin) {
         this.$router.push("/");
       }
-      window.document.title = (this.lang == "zh_CN" ? "新用户注册 - " : "New Register - ") + "c-deal | Global digital currency trading platform";
+      window.document.title = (this.lang == "zh_CN" ? "新用户注册 - " : "New Register - ") + "coinglb | Global digital currency trading platform";
       this.getAreas();
     },
     onAreaChange(value) {

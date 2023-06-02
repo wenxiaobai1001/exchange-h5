@@ -49,7 +49,7 @@ export default {
       // this.customerURL = "https://www.kf827.xyz/Chat/Chat?lang=en&userID="+member+"&userName="+member.username;
     }
     // this.customerURL = "https://www.onlineservicechat.com/index/index/home?visiter_id="+member.id+"&visiter_name="+(member.realName||'')+"&avatar="+(member.avatar||'')+"&business_id=1&groupid=1&special=1";
-    this.customerURL = "https://h5.c-deal.com/chat.html";
+    this.customerURL = "https://h5.coinglb.com/chat.html";
   },
   methods: {
     closeCustomerService(){
